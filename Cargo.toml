@@ -1,0 +1,21 @@
+[package]
+name = "exo"
+version = "0.1.0"
+edition = "2021"
+license = "(MIT OR Apache-2.0)"
+authors = ["Anish Pallati <anishp@duck.com>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = { version = "0.11.0", features = ["wayland", "dynamic_linking"] }
+console_error_panic_hook = "0.1.7"
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = "thin"
